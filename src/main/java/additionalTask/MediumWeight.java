@@ -3,25 +3,19 @@ package additionalTask;
 public class MediumWeight {
 
     public static double calculateMediumWeight(double[] grades, int[] weights) {
-
         double sum = 0;
         int weightSum = 0;
         double result = 0;
-        try {
-            checkGradeBounds(grades, 1, 6);
-            checkWeightBounds(weights, 1, 10);
-            verifyArraysLengths(grades, weights);
-            verifyIfGradeArrayIsNotEmpty(grades);
-            verifyIfWeightArrayIsNotEmpty(weights);
-            for (int n = 0; n < grades.length; n++) {
-                sum += grades[n] * weights[n];
-                weightSum += weights[n];
-            }
-            result = sum / weightSum;
-
-        } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
+        checkGradeBounds(grades, 1, 6);
+        checkWeightBounds(weights, 1, 10);
+        verifyArraysLengths(grades, weights);
+        verifyIfGradeArrayIsNotEmpty(grades);
+        verifyIfWeightArrayIsNotEmpty(weights);
+        for (int n = 0; n < grades.length; n++) {
+            sum += grades[n] * weights[n];
+            weightSum += weights[n];
         }
+        result = sum / weightSum;
         return result;
     }
 
