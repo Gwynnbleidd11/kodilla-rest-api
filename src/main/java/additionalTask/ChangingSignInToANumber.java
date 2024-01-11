@@ -8,7 +8,6 @@ public class ChangingSignInToANumber {
         System.out.println(convertSignToInt("-89"));
         System.out.println(convertSignToInt("5tom79"));
         System.out.println(convertSignToInt("alpaka"));
-
     }
 
     public static int convertSignToInt(String string) {
