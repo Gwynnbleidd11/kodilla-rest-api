@@ -23,4 +23,10 @@ public class Mail {
                 .toCc(cc)
                 .build();
     }
+
+    public Mail(String mailTo, String subject, String message) {
+        this.mailTo = mailTo;
+        this.subject = subject;
+        this.message = message;
+    }
 }
