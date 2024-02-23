@@ -92,4 +92,13 @@ public class TrelloFacadeTest {
             });
         });
     }
+
+    @Test
+    void testCreateTrelloCart() {
+        //Given
+
+        //When
+
+        //Then
+    }
 }
