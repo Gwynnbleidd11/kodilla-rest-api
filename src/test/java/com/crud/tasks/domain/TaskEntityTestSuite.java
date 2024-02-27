@@ -2,18 +2,14 @@ package com.crud.tasks.domain;
 
 import com.crud.tasks.controller.TaskController;
 import com.crud.tasks.controller.TaskNotFoundException;
-import com.crud.tasks.domain.Task;
-import com.crud.tasks.domain.TaskDto;
 import com.crud.tasks.service.DbService;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
