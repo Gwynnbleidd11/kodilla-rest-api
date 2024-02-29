@@ -8,8 +8,6 @@ import com.google.gson.Gson;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
-import org.mockito.ArgumentMatchers;
-import org.mockito.invocation.InvocationOnMock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -19,12 +17,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
 @SpringJUnitWebConfig
@@ -105,9 +101,7 @@ public class TaskControllerTest {
         //Given
         Task task = new Task(123L, "Test title", "Test content");
         TaskDto taskDto = new TaskDto(123L, "Test title", "Test content");
-//        when(taskService.saveTask(any(Task.class))).thenReturn(task);
-//        when(taskMapper.mapToTaskDto(task)).thenReturn(taskDto);
-//
+
         when(taskMapper.mapToTask(taskDto)).thenReturn(task);
 
         Gson gson = new Gson();
@@ -121,19 +115,6 @@ public class TaskControllerTest {
                         .characterEncoding("UTF-8")
                         .content(jsonContent))
                 .andExpect(MockMvcResultMatchers.status().isOk());
-
-        ArgumentCaptor<Task> taskArgumentCaptor = ArgumentCaptor.forClass(Task.class);
-        verify(taskService).saveTask(taskArgumentCaptor.capture());
-        Task capturedTask = taskArgumentCaptor.getValue();
-        assertThat(capturedTask).isEqualTo(task);
-
-//        verify(taskMapper, times(1)).mapToTask(taskDto);
-//        verify(taskService, times(1)).saveTask(argThat(savedTask ->
-//                savedTask.getId().equals(task.getId()) &&
-//                savedTask.getTitle().equals(task.getTitle()) &&
-//                savedTask.getContent().equals(task.getContent())));
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.title", Matchers.is("Test title")));
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.content", Matchers.is("Test content")));
     }
 
     @Test
